@@ -1,0 +1,32 @@
+.title{
+    display: block;
+    color: antiquewhite;
+    margin-left: 10px;
+}
+.wrapper{
+    background-color: black;
+    padding: 10px;
+   
+}
+
+.posters{
+    display: flex;
+    margin: 5px 5px 0px 5px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 5px;
+}
+.posters::-webkit-scrollbar{
+    display: none;
+}
+.poster{
+    object-fit: contain;
+    /*it will keep the aspect ratio*/
+    width: 100%;
+   max-height: 200px;
+   margin-right:10px;
+   transition: transform 500ms;
+}
+.poster:hover{
+    transform:scale(1.03)
+}
