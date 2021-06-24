@@ -1,26 +1,37 @@
-import classes from './App.css';
-import React, {Component} from 'react';
-import requests from './Api/api';
-import Row from './Row/Row';
-import Navbar from './Navbar/Navbar';
-import Header from './Header/Header';
-class App extends Component {
-  render(){
+import React, {Component,useState, useEffect} from 'react';
+import getFirebase from './Auth/firebase';
+import SignUp from './Auth/Signup/Signup';
+import SignIn from './Auth/Signin/Signin';
+import Home from './Home/home';
+import { Route, Switch} from 'react-router-dom';
+const App=()=>  {
+  const [currentUser, setCurrentUser] = useState(null);
+  useEffect(() => {
+    const firebase = getFirebase();
+
+    if (firebase) {
+      firebase.auth().onAuthStateChanged((authUser) => {
+        if (authUser) {
+          setCurrentUser(authUser.email);
+        } else {
+          setCurrentUser(null);
+        }
+      });
+    }
+  }, []);
     return (
       <div>
-        <Navbar />
-        <div className={classes.rows}>
-          <Header url={requests.fetchNetflixOriginal} />
-          <Row title="Netflix Originals" url={requests.fetchNetflixOriginal} />
-          <Row title="Top Rated" url={requests.fetchTopRated} />
-          <Row title="Trending" url={requests.fetchTrending} />
-          <Row title="Action Movie" url={requests.fetchActionMovie} />
-          <Row title="Comedy Movie" url={requests.fetchComedyMovie} />
-          <Row title="Horror Movie" url={requests.fetchHorrorMovie} />
-        </div>
+        <Switch>
+          <Route path="/signup" component={SignUp}></Route> 
+          <Route path="/signin" component={SignIn}></Route> 
+          <Route path="/" exact component={Home}></Route> 
+        </Switch>
+        {/* <SignIn user={currentUser}/> */}
+        
+
       </div>
     );
-  }
+  
 }
 
 export default App;
