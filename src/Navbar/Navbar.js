@@ -3,8 +3,13 @@ import classes from './navbar.css';
 const navbar=()=>(
     <div className={classes.navbar}>
         <div className={classes.title} >
-            Netflix
+            <img />
+            <ul className={classes.menu}>
+            <li>SignIn/SignUp</li>
+        </ul>
         </div>
+        
+        
     </div>
 )
     
