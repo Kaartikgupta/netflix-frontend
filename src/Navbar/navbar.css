@@ -3,10 +3,14 @@
     width: 100%;
     top: 0px;
     height: 50px;
-    background-color: black;
-    color: red;
+    background-color: transparent;
+    z-index: 1;
+    
     font-weight: 600;
     font-size: 35px;
+}
+.active{
+    background-color: black;
 }
 .title{
     padding-left: 15px;
@@ -29,17 +33,17 @@ li{
     margin-right: 15px;
     transition: transform 500ms;
 }
- a:-webkit-any-link {
+li a:-webkit-any-link {
     color: white;
     font-weight: 300;
     cursor: pointer;
     text-decoration: none;
 }
 .title img{
-    background-image: url(https://media.wired.com/photos/592682057034dc5f91bebab8/4:3/w_929,h_697,c_limit/NetflixLogo2016.jpg);
+    /* background-image: url(https://media.wired.com/photos/592682057034dc5f91bebab8/4:3/w_929,h_697,c_limit/NetflixLogo2016.jpg);
     background-position: center;
     background-size: cover;
     width: 35px;
-    height: 35px;
+    height: 35px; */
     margin-top: 5px;
 }

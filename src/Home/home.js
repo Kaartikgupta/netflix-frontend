@@ -7,15 +7,15 @@ import Header from '../Header/Header';
 const home =(props)=>{
     return(
         <div>
-            <Navbar />
+            <Navbar currentUser={props.currentUser}/>
             <div className={classes.rows}>
-                <Header url={requests.fetchNetflixOriginal} />
-                <Row title="Netflix Originals" url={requests.fetchNetflixOriginal} />
-                <Row title="Top Rated" url={requests.fetchTopRated} />
-                <Row title="Trending" url={requests.fetchTrending} />
-                <Row title="Action Movie" url={requests.fetchActionMovie} />
-                <Row title="Comedy Movie" url={requests.fetchComedyMovie} />
-                <Row title="Horror Movie" url={requests.fetchHorrorMovie} />
+                <Header url={requests.fetchNetflixOriginal} currentUser={props.currentUser} />
+                <Row title="Netflix Originals" url={requests.fetchNetflixOriginal} currentUser={props.currentUser}/>
+                <Row title="Top Rated" url={requests.fetchTopRated} currentUser={props.currentUser}/>
+                <Row title="Trending" url={requests.fetchTrending} currentUser={props.currentUser}/>
+                <Row title="Action Movie" url={requests.fetchActionMovie} currentUser={props.currentUser}/>
+                <Row title="Comedy Movie" url={requests.fetchComedyMovie} currentUser={props.currentUser} />
+                <Row title="Horror Movie" url={requests.fetchHorrorMovie} currentUser={props.currentUser} />
             </div>
         </div>
     )
